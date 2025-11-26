@@ -329,7 +329,7 @@ You can also run the detector locally for development or CI systems without GitH
 #### Installation
 
 ```bash
-git clone https://github.com/gensecaihq/Shai-Hulud-2.0-Detector.git
+git clone git@github.com:SineMah/Shai-Hulud-2.0-Detector.git
 cd Shai-Hulud-2.0-Detector
 npm install
 npm run build
@@ -342,7 +342,7 @@ npm run build
 node dist/cli/index.js
 
 # Run with options
-node dist/cli/index.js --dir /path/to/project --fail-on-critical --format json
+node dist/cli/index.js --fail-on-critical --format json --dir /path/to/project
 ```
 
 #### CLI Options
