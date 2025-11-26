@@ -760,7 +760,7 @@ export function checkShaiHuludRepos(directory: string): SecurityFinding[] {
 
       // Skip if this is the detector's own repository
       if (content.includes('Shai-Hulud-2.0-Detector') ||
-          content.includes('gensecaihq')) {
+        content.includes('gensecaihq')) {
         // This is the detector's own repo, skip
       } else {
         for (const { pattern, description } of SHAI_HULUD_REPO_PATTERNS) {
@@ -788,7 +788,7 @@ export function checkShaiHuludRepos(directory: string): SecurityFinding[] {
 
       // Skip if this is the detector's own package.json
       if (content.includes('gensecaihq/Shai-Hulud-2.0-Detector') ||
-          content.includes('shai-hulud-detector')) {
+        content.includes('shai-hulud-detector')) {
         continue;
       }
 
@@ -796,7 +796,7 @@ export function checkShaiHuludRepos(directory: string): SecurityFinding[] {
         if (pattern.test(content)) {
           // Make sure it's not just a reference to the detector
           const contentWithoutDetector = content.replace(/gensecaihq\/Shai-Hulud-2\.0-Detector/gi, '')
-                                                .replace(/shai-hulud-detector/gi, '');
+            .replace(/shai-hulud-detector/gi, '');
           if (pattern.test(contentWithoutDetector)) {
             findings.push({
               type: 'shai-hulud-repo',
@@ -1119,8 +1119,8 @@ export function generateSarifReport(summary: ScanSummary): SarifResult {
             finding.severity === 'critical'
               ? 'error'
               : finding.severity === 'high'
-              ? 'warning'
-              : 'note',
+                ? 'warning'
+                : 'note',
         },
       });
     }
@@ -1131,8 +1131,8 @@ export function generateSarifReport(summary: ScanSummary): SarifResult {
         finding.severity === 'critical'
           ? 'error'
           : finding.severity === 'high'
-          ? 'warning'
-          : 'note',
+            ? 'warning'
+            : 'note',
       message: {
         text: `${finding.title}: ${finding.description}${finding.evidence ? `\n\nEvidence: ${finding.evidence}` : ''}`,
       },

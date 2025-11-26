@@ -324,29 +324,40 @@ The easiest way to use Shai-Hulud Detector is as a GitHub Action. **Now availabl
 
 ### Local CLI Usage
 
-You can also run the detector locally for development or CI systems without GitHub Actions:
+You can also run the detector locally for development or CI systems without GitHub Actions.
 
-#### Using npx (No Installation)
+#### Installation
 
 ```bash
-# Clone and run
 git clone https://github.com/gensecaihq/Shai-Hulud-2.0-Detector.git
 cd Shai-Hulud-2.0-Detector
 npm install
-node dist/index.js
+npm run build
 ```
 
-#### Environment Variables for Local Use
+#### Running the CLI
 
 ```bash
-# Set inputs via environment variables
-export INPUT_FAIL-ON-CRITICAL=true
-export INPUT_SCAN-LOCKFILES=true
-export INPUT_OUTPUT-FORMAT=json
-export INPUT_WORKING-DIRECTORY=/path/to/your/project
+# Run scan in current directory
+node dist/cli/index.js
 
-node dist/index.js
+# Run with options
+node dist/cli/index.js --dir /path/to/project --fail-on-critical --format json
 ```
+
+#### CLI Options
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `-d, --dir <path>` | Working directory to scan | Current directory |
+| `--fail-on-critical` | Fail if critical issues are found | `false` |
+| `--fail-on-high` | Fail if high or critical issues are found | `false` |
+| `--fail-on-any` | Fail if any issues are found | `false` |
+| `--scan-lockfiles` | Scan lockfiles | `true` |
+| `--no-scan-lockfiles` | Do not scan lockfiles | |
+| `--scan-node-modules` | Scan node_modules directory | `false` |
+| `-f, --format <format>` | Output format (text, json, sarif) | `text` |
+| `-h, --help` | Display help | |
 
 ### CI/CD Integration
 
